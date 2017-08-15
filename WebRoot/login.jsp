@@ -12,18 +12,25 @@
 <base href="<%=basePath%>">
 
 <title>My JSP 'index.jsp' starting page</title>
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+<style type="text/css">
+body, td, th {
+	color: #0000FF;
+}
+
+body {
+	background-color: #99CC99;
+	background-image: url(file:///C|/Users/hp/Pictures/,fcut74.png);
+}
+
+.STYLE1 {
+	font-size: 36px;
+	font-weight: bold;
+}
+</style>
 </head>
 
 <body>
-	<p>本机电脑文件管理系统</p>
+	<div align="center" class="STYLE1">文件管理系统</div>
 	<form method="post" id="form" action="login?method=login">
 		<p align="center">
 			input your name:<input type="text" name="username" />
