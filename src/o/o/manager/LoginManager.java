@@ -1,10 +1,12 @@
 package o.o.manager;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import o.o.micky.dao.Dao;
 import o.o.micky.dao.DaoFactory;
+import o.o.micky.dao.pojo.DbConnAndRs;
+import o.o.micky.daoImpl.DaoImpl;
 import o.o.pojo.User;
 
 public class LoginManager {
@@ -12,12 +14,16 @@ public class LoginManager {
 	public static User loginCheck(String userName, String passWord)
 			throws SQLException {
 		User user = new User();
-		Dao queryUser = DaoFactory.getDao();
+		DaoImpl queryUser = DaoFactory.getDao();
 		ResultSet rs = null;
 		String querySql = "select * from user where userName='" + userName
 				+ "'";
+		Connection connection = null;
+		DbConnAndRs dbConnAndRs = null;
 		try {
-			rs = queryUser.select(querySql);
+			connection = queryUser.getConnection();
+			dbConnAndRs = queryUser.select(connection, querySql);
+			rs = dbConnAndRs.getRs();
 			if (rs == null) {
 				return user;
 			}
@@ -26,7 +32,10 @@ public class LoginManager {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			queryUser.closeAll(dbConnAndRs);
 		}
 		return user;
 	}
+
 }

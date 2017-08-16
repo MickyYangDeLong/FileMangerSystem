@@ -19,7 +19,7 @@ body, td, th {
 
 body {
 	background-color: #99CC99;
-	background-image: url(/source/1.jpg);
+	background-image: url(/source/,1.jpg);
 }
 
 .STYLE1 {
@@ -31,18 +31,6 @@ body {
 
 <body>
 	<div align="center" class="STYLE1">文件管理系统</div>
-	<form method="post" id="form" action="login?method=login">
-		<p align="center">
-			input your name:<input type="text" name="username" />
-		</p>
-		${message}<br />
-		<p align="center">
-			your password:<input type="password" name="password" />
-		</p>
-		<br />
-		<p align="center">
-			<input type="submit" value="submit" /> <input type="reset" />
-		</p>
-	</form>
+
 </body>
 </html>

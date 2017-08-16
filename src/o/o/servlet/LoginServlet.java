@@ -44,7 +44,7 @@ public class LoginServlet extends BaseServlet {
 		setMessage(result.getCheckMessage());
 		if (result.getCheckResultCode() == LoginConstants.LOGIN_CHECK_SUCCESS) {
 			// request.getSession().setAttribute("tip", "login success!");
-			request.getRequestDispatcher("welcome.jsp").forward(request,
+			request.getRequestDispatcher("/jsp/main.jsp").forward(request,
 					response);
 		} else {
 			request.getRequestDispatcher("login.jsp")
